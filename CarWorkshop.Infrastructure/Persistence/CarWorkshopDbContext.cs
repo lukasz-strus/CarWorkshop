@@ -4,12 +4,11 @@ namespace CarWorkshop.Infrastructure.Persistence;
 
 public class CarWorkshopDbContext : DbContext
 {
-    public DbSet<Domain.Entities.CarWorkshop> CarWorkshops { get; set; }
-
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    public CarWorkshopDbContext(DbContextOptions<CarWorkshopDbContext> options) : base(options)
     {
-        optionsBuilder.UseSqlServer("Server=DESKTOP-OLPFAC4;Database=CarWorkshopDb;Trusted_Connection=True;Encrypt=False");
     }
+
+    public DbSet<Domain.Entities.CarWorkshop> CarWorkshops { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
