@@ -12,6 +12,11 @@ public class CarWorkshopController : Controller
         _carWorkshopService = carWorkshopService;
     }
 
+    public ActionResult Create()
+    {
+        return View();
+    }
+
     [HttpPost]
     public async Task<IActionResult> Create(Domain.Entities.CarWorkshop carWorkshop)
     {
