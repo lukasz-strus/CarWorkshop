@@ -1,4 +1,5 @@
 ﻿using CarWorkshop.Infrastructure.Persistence;
+using CarWorkshop.Infrastructure.Seeders;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -11,5 +12,7 @@ public static class ServiceCollectionExtension
     {
         services.AddDbContext<CarWorkshopDbContext>(options => options.UseSqlServer(
             configuration.GetConnectionString("CarWorkshop")));
+
+        services.AddScoped<CarWorkshopSeeder>();
     }
 }
