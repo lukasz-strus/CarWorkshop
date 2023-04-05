@@ -16,5 +16,11 @@ public class CarWorkshopMappingProfile : Profile
                 PostalCode = dto.PostalCode,
                 Street = dto.Street
             }));
+
+        CreateMap<Domain.Entities.CarWorkshop, CarWorkshopDto>()
+            .ForMember(dto => dto.Street, config => config.MapFrom(c => c.ContactDetails.Street))
+            .ForMember(dto => dto.City, config => config.MapFrom(c => c.ContactDetails.City))
+            .ForMember(dto => dto.PostalCode, config => config.MapFrom(c => c.ContactDetails.PostalCode))
+            .ForMember(dto => dto.PhoneNumber, config => config.MapFrom(c => c.ContactDetails.PhoneNumber));
     }
 }
