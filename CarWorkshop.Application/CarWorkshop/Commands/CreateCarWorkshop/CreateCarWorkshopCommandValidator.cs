@@ -26,6 +26,6 @@ public class CreateCarWorkshopCommandValidator : AbstractValidator<CreateCarWork
 
         RuleFor(c => c.PhoneNumber)
             .MinimumLength(8).WithMessage("Phone number should have atleast 2 characters")
-            .MaximumLength(12).WithMessage("Phone number should have maximum 12 characters"); ;
+            .MaximumLength(12).WithMessage("Phone number should have maximum 12 characters");
     }
 }

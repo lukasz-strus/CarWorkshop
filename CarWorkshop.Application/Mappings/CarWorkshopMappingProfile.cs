@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using CarWorkshop.Application.CarWorkshop;
+using CarWorkshop.Application.CarWorkshop.Commands.EditCarWorkshop;
 using CarWorkshop.Domain.Entities;
 
 namespace CarWorkshop.Application.Mappings;
@@ -22,5 +23,7 @@ public class CarWorkshopMappingProfile : Profile
             .ForMember(dto => dto.City, config => config.MapFrom(c => c.ContactDetails.City))
             .ForMember(dto => dto.PostalCode, config => config.MapFrom(c => c.ContactDetails.PostalCode))
             .ForMember(dto => dto.PhoneNumber, config => config.MapFrom(c => c.ContactDetails.PhoneNumber));
+
+        CreateMap<CarWorkshopDto, EditCarWorkshopCommand>();
     }
 }
